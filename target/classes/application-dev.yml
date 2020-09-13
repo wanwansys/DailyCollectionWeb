@@ -1,11 +1,12 @@
 server:
   port: 8080
  
+ #useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
 spring:
   datasource:
-    username: gzf_base
-    password: gzf_base
-    url: jdbc:mysql://localhost:3306/gzf_base?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: work_log_report
+    password: wlr@123
+    url: jdbc:mysql://129.204.226.146:3306/work_log_report?autoReconnect=true&failOverReadOnly=false
     driver-class-name: com.mysql.jdbc.Driver
  
 mybatis:
@@ -16,5 +17,5 @@ mybatis:
 logging:
   level:
     com:
-      example:
+      shkj:
         mapper:debug

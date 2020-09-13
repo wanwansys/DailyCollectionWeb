@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shkj.mapper.DailyReportInfoMapper">
+ 
+
+    <!-- 查看全部人员日报 -->
+    <select id="getAllDailyReportInfoList" resultType="com.shkj.bean.DailyReportInfo" parameterType="Map">
+        <![CDATA[
+        	select * from dailyReportInfo where 1=1
+        ]]>   
+        
+        <if test="speakTime !=null and speakTime !=''">
+           <![CDATA[
+            	and str_to_date(speakTime,'%Y-%m-%d') = str_to_date(#{speakTime},'%Y-%m-%d')
+           ]]>  
+        </if> 
+               
+    </select>
+    
+     <!-- 查看个人日报 -->
+    <select id="getPersonDailyReportInfoList" resultType="com.shkj.bean.DailyReportInfo" parameterType="Map">
+        <![CDATA[
+        	select * from dailyReportInfo where 1=1
+        ]]>   
+        
+        
+        <if test="speakStartTime !=null and speakStartTime !=''">
+           <![CDATA[ 
+               and str_to_date(speakTime,'%Y-%m-%d') >= str_to_date(#{speakStartTime},'%Y-%m-%d')
+           ]]> 
+        </if>
+       
+       
+        <if test="speakEndTime !=null and speakEndTime !=''">
+           <![CDATA[  
+               and str_to_date(speakTime,'%Y-%m-%d') <= str_to_date(#{speakEndTime},'%Y-%m-%d') 
+           ]]>   
+        </if> 
+            
+    </select>
+    
+</mapper>

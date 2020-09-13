@@ -13,4 +13,5 @@ public class DailycollectwebApplication {
         SpringApplication.run(DailycollectwebApplication.class, args);
     }
 
+
 }
