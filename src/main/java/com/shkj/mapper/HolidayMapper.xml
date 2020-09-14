@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shkj.mapper.HolidayMapper">
+ 
+    <!-- 查询节假日全部信息 -->
+    <select id="getHolidayList" resultType="com.shkj.bean.Holiday">
+        select * from holiday
+    </select>
+    
+    <!-- 添加节假日 -->
+    <insert id="insertHoliday" parameterType="com.shkj.bean.Holiday">
+    	insert into holiday(day)values(#{day})
+    </insert>
+    
+    <!-- 修改节假日 -->
+    <!-- <update id="updateHoliday" parameterType="com.shkj.bean.Holiday">
+    	update holiday set day = #{day} where userNo = #{userNo}    
+    </update> -->
+    
+    <!-- 删除节假日 -->
+    <delete id="deleteHoliday" parameterType="String">
+    	delete from holiday where day = #{day}
+    </delete>
+    
+</mapper>
