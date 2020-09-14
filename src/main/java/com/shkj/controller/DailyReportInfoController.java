@@ -6,7 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRichTextString;
@@ -14,6 +16,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,10 +31,18 @@ import com.shkj.service.DailyReportInfoService;
 public class DailyReportInfoController {
 
 	/*
-	 * @Autowired private HttpServletResponse httpResponse;
+	 * @Resource private DataSource dataSource;
 	 */
 	@Autowired
 	public DailyReportInfoService dailyReportInfoService;
+	
+	/*
+	 * @GetMapping("/query") public void query(){
+	 * System.out.println("查询到的数据源连接池信息是:"+dataSource);
+	 * System.out.println("查询到的数据源连接池类型是:"+dataSource.getClass());
+	 * //System.out.println("查询到的数据源连接池名字是:"+dataSource.getPoolProperties().getName(
+	 * )); }
+	 */
 	
 	@RequestMapping("/getAllDailyReportInfoList")
 	@ResponseBody

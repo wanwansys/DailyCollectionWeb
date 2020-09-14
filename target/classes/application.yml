@@ -12,3 +12,13 @@ pagehelper:
     pageSizeZero: false #pageSize=0 返回所有
     params: count=countSql
     
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.shkj.bean
+ 
+#showSql
+logging:
+  level:
+    com:
+      shkj:
+        mapper:debug
