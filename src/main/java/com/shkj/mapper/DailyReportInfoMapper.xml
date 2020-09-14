@@ -38,5 +38,9 @@
         </if> 
             
     </select>
+
+    <insert id="saveDailyInfo" parameterType="com.shkj.bean.DailyReportInfo">
+        insert into dailyReportInfo(id,speakUserNo,speakInfo,speakTime) value(#{id},#{speakUserNo},#{speakInfo},#{speakTime})
+    </insert>
     
 </mapper>

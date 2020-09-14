@@ -11,4 +11,6 @@ public interface DailyReportInfoService {
 	public List<DailyReportInfo> getAllDailyReportInfoList(Map<String, String> map);
 	//查看个人日报
 	public List<DailyReportInfo> getPersonDailyReportInfoList(Map<String, String> map);
+	//保存日报
+    int saveDaily(DailyReportInfo info);
 }

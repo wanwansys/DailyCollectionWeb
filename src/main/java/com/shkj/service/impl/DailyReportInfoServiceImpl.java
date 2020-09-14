@@ -34,4 +34,15 @@ public class DailyReportInfoServiceImpl implements DailyReportInfoService{
 		return list;
 	}
 
+	@Override
+	public int saveDaily(DailyReportInfo info) {
+		try {
+			dailyReportInfoMapper.saveDailyInfo(info);
+			return 0;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 1;
+		}
+	}
+
 }
