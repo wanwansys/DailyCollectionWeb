@@ -14,7 +14,7 @@ public interface HolidayMapper {
 	//添加节假日
 	public int insertHoliday(Holiday Holiday);
 	//修改节假日
-	//public int updateHoliday(Holiday Holiday);
+	public int updateHoliday(Holiday Holiday);
 	//删除节假日
 	public int deleteHoliday(String holiday);
 }

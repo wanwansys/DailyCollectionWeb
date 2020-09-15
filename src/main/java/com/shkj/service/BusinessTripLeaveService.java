@@ -1,11 +1,8 @@
 package com.shkj.service;
 
-import org.springframework.stereotype.Service;
-
 import com.github.pagehelper.PageInfo;
 import com.shkj.bean.BusinessTripLeave;
 
-@Service
 public interface BusinessTripLeaveService {
     //查询
 	public PageInfo<BusinessTripLeave> getBusinessTripLeaveList();

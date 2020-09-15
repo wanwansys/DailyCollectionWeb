@@ -9,13 +9,13 @@
     
     <!-- 添加节假日 -->
     <insert id="insertHoliday" parameterType="com.shkj.bean.Holiday">
-    	insert into holiday(day)values(#{day})
+    	insert into holiday(day,type)values(#{day},#{day})
     </insert>
     
     <!-- 修改节假日 -->
-    <!-- <update id="updateHoliday" parameterType="com.shkj.bean.Holiday">
-    	update holiday set day = #{day} where userNo = #{userNo}    
-    </update> -->
+    <update id="updateHoliday" parameterType="com.shkj.bean.Holiday">
+    	update holiday set type = #{type} where day = #{day}    
+    </update>
     
     <!-- 删除节假日 -->
     <delete id="deleteHoliday" parameterType="String">

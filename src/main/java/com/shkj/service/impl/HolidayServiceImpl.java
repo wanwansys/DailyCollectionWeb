@@ -33,10 +33,12 @@ public class HolidayServiceImpl implements HolidayService{
 		return holidayMapper.insertHoliday(holiday);
 	}
 
-	/*
-	 * @Override public int updateHoliday(Holiday holiday) { logger.info("修改");
-	 * return holidayMapper.updateHoliday(holiday); }
-	 */
+	
+	@Override public int updateHoliday(Holiday holiday) { 
+		logger.info("修改");
+	    return holidayMapper.updateHoliday(holiday); 
+	 }
+	
 
 	@Override
 	public int deleteHoliday(String day) {

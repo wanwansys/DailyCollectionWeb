@@ -14,7 +14,7 @@
     </insert>
     
     <!-- 修改负责人 -->
-    <update id="updateBusinessTripLeave" parameterType="com.shkj.bean.BusinessTripLeaves">
+    <update id="updateBusinessTripLeave" parameterType="com.shkj.bean.BusinessTripLeave">
     	update businessTripLeave set userNo = #{userNo},type = #{type},
     	        startDate = #{startDate},endDate = #{endDate},comment = #{comment}
     	where id = #{id}    

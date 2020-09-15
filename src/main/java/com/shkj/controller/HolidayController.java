@@ -35,15 +35,18 @@ public class HolidayController {
 			return "{\"result\":\"fail\",\"msg\":\"添加失败\"}";
 		}
 	}
-	
-	/*
-	 * @RequestMapping("/updateHoliday")
-	 * 
-	 * @ResponseBody public String updateHoliday(Holiday holiday){ //修改 int result =
-	 * holidayService.updateHoliday(holiday); if(result >= 1) { return
-	 * "{\"result\":\"success\",\"msg\":\"修改负责人成功\"}"; } else { return
-	 * "{\"result\":\"fail\",\"msg\":\"修改负责人失败\"}"; } }
-	 */
+		
+    @RequestMapping("/updateHoliday")	
+	@ResponseBody public String updateHoliday(Holiday holiday){ 
+		//修改 
+    	int result = holidayService.updateHoliday(holiday); 
+		if(result >= 1) { 
+			return "{\"result\":\"success\",\"msg\":\"修改负责人成功\"}"; 
+		 } else { 
+			 return "{\"result\":\"fail\",\"msg\":\"修改负责人失败\"}"; 
+		 } 
+	 }
+	 
 	
 	@RequestMapping("/deleteHoliday")
 	@ResponseBody

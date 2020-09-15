@@ -9,7 +9,7 @@ public interface HolidayService {
 	//添加
 	public int insertHoliday(Holiday holiday);
 	//修改
-	//public int updateHoliday(Holiday holiday);
+	public int updateHoliday(Holiday holiday);
 	//删除
 	public int deleteHoliday(String day);
 }
