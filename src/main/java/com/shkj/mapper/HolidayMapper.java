@@ -17,4 +17,6 @@ public interface HolidayMapper {
 	public int updateHoliday(Holiday Holiday);
 	//删除节假日
 	public int deleteHoliday(String holiday);
+
+    List<Holiday> queryByMonth(String yearmon);
 }

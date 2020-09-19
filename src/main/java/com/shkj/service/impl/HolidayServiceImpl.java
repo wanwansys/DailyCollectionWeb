@@ -46,4 +46,10 @@ public class HolidayServiceImpl implements HolidayService{
 		return holidayMapper.deleteHoliday(day);
 	}
 
+	@Override
+	public List<Holiday> queryByMonth(String yearmon) {
+		logger.info("查询当月的节假日日期数据");
+		return holidayMapper.queryByMonth(yearmon);
+	}
+
 }

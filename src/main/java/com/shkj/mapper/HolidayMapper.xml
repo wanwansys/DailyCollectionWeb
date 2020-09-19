@@ -21,5 +21,9 @@
     <delete id="deleteHoliday" parameterType="String">
     	delete from holiday where day = #{day}
     </delete>
+
+    <select id="queryByMonth" resultType="com.shkj.bean.Holiday" parameterType="String">
+        select * from holiday where substr(day,1,6) = #{year}
+    </select>
     
 </mapper>
