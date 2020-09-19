@@ -119,6 +119,13 @@
 			<scope>system</scope>
 		  	<systemPath>${project.basedir}/src/main/resources/lib/PCJava-1.16-20191220.jar</systemPath>
 		</dependency>
+		
+		<!-- fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.56</version>
+        </dependency>
 	</dependencies>
 
 
