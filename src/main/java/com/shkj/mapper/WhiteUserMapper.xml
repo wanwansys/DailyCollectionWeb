@@ -23,4 +23,9 @@
     <delete id="deleteWhiteUser" parameterType="String">
     	delete from whiteUser where userNo = #{userNo}
     </delete>
+    
+    <!-- 根据用户编号查询用户信息 -->
+    <select id="getWhiteUser" resultType="com.shkj.bean.WhiteUser" parameterType="String">
+        select * from whiteUser where userNo = #{userNo}
+    </select>
 </mapper>

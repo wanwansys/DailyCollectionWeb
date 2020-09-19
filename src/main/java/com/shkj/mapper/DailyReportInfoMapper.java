@@ -3,8 +3,10 @@ package com.shkj.mapper;
 import java.util.List;
 import java.util.Map;
 
-import com.shkj.bean.DailyReportInfo;
+import org.springframework.stereotype.Repository;
 
+import com.shkj.bean.DailyReportInfo;
+@Repository
 public interface DailyReportInfoMapper {
 
 	//查看全部人员日报

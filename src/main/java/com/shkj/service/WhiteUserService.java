@@ -12,4 +12,6 @@ public interface WhiteUserService {
 	public int updateWhiteUser(WhiteUser whiteUser);
 	//删除白名单用户
 	public int deleteWhiteUser(String userNo);
+	//根据用户编号查询用户信息
+	public WhiteUser getWhiteUser(String userNo);
 }

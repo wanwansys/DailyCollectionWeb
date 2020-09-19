@@ -9,7 +9,7 @@
     
     <!-- 添加节假日 -->
     <insert id="insertHoliday" parameterType="com.shkj.bean.Holiday">
-    	insert into holiday(day,type)values(#{day},#{day})
+    	insert into holiday(day,type)values(#{day},#{type})
     </insert>
     
     <!-- 修改节假日 -->

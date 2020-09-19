@@ -48,4 +48,12 @@ public class WhiteUserServiceImpl implements WhiteUserService{
 		return whiteUserMapper.deleteWhiteUser(userNo);
 	}
 
+
+	@Override
+	public WhiteUser getWhiteUser(String userNo) {
+		//根据用户编号查询用户信息
+		logger.info("根据用户编号"+userNo+"查询用户信息");
+		return whiteUserMapper.getWhiteUser(userNo);
+	}
+
 }
