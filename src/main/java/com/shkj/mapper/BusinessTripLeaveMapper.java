@@ -18,4 +18,6 @@ public interface BusinessTripLeaveMapper {
 	public int updateBusinessTripLeave(BusinessTripLeave businessTripLeave);
 	//删除
 	public int deleteBusinessTripLeave(String id);
+
+    List<BusinessTripLeave> queryByDaiyDay(String dailyDay);
 }

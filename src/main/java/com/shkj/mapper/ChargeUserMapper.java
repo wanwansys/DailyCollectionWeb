@@ -17,4 +17,8 @@ public interface ChargeUserMapper {
 	public int updateChargeUser(ChargeUser chargeUser);
 	//删除负责人
 	public int deleteChargeUser(String userNo);
+
+    List<ChargeUser> queryNosendForDay(String dailyDay);
+
+	List<ChargeUser> queryNosendDaily(String dailyDay);
 }

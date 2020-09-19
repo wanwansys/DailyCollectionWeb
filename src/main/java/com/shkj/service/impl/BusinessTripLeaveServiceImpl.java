@@ -11,6 +11,7 @@ import com.github.pagehelper.PageInfo;
 import com.shkj.bean.BusinessTripLeave;
 import com.shkj.mapper.BusinessTripLeaveMapper;
 import com.shkj.service.BusinessTripLeaveService;
+import org.springframework.stereotype.Service;
 
 @Service
 public class BusinessTripLeaveServiceImpl implements BusinessTripLeaveService{
@@ -42,5 +43,11 @@ public class BusinessTripLeaveServiceImpl implements BusinessTripLeaveService{
 	public int deleteBusinessTripLeave(String id) {
 		logger.info("删除出差及休假情况");
 		return businessTripLeaveMapper.deleteBusinessTripLeave(id);
+	}
+
+	@Override
+	public List<BusinessTripLeave> queryByDay(String dailyDay) {
+
+		return businessTripLeaveMapper.queryByDaiyDay(dailyDay);
 	}
 }

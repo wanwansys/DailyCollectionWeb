@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.UUID;
 
 /**
  * 对接招呼机器人，用于接收转发的日报信息
@@ -22,13 +21,15 @@ public class RobotController {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	public DailyReportInfoService infoService;
-			
-	@PostMapping("receiveDaily")
+
+	@RequestMapping("/receiveDaily")
 	@ResponseBody
 	public JsonObject saveDaily(@RequestBody DailyMsgModel model) {
 		logger.info("接收到招呼机器人消息转发内容：" + model.toString());
 		DailyReportInfo info = new DailyReportInfo();
 		info.setId(model.getMsgId());
+		String openId = model.getFromId(); // 招呼openId
+		// todo 根据openId 关联一事通用户Id
 		info.setSpeakUserNo(model.getFromId());
 		info.setSpeakInfo(model.getMsgContent());
 		Date date = new Date(model.getTimestamp());

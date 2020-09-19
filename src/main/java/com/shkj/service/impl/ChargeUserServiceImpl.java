@@ -44,4 +44,14 @@ public class ChargeUserServiceImpl implements ChargeUserService{
 		return chargeUserMapper.deleteChargeUser(userNo);
 	}
 
+	@Override
+	public List<ChargeUser> queryNosendDaily(String dailyDay) {
+		return chargeUserMapper.queryNosendDaily(dailyDay);
+	}
+
+	@Override
+	public List<ChargeUser> queryNosendForDay(String dailyDay) {
+		return chargeUserMapper.queryNosendForDay(dailyDay);
+	}
+
 }

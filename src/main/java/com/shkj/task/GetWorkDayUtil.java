@@ -32,10 +32,9 @@ public class GetWorkDayUtil {
 
     }
     public static void main(String[] args) {
-        List<String> dates = getDates(2020,9);
-        for(String s : dates){
-            System.out.println(s);
-        }
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.YEAR,-1);
+        System.out.println(cal.get(Calendar.YEAR));
 
 
     }

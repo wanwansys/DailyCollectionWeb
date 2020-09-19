@@ -24,5 +24,9 @@
     <delete id="deleteBusinessTripLeave" parameterType="String">
     	delete from businessTripLeave where id = #{id}
     </delete>
-    
+
+    <!-- 根据统计日期查询当日处于休假/出差人员 -->
+    <select id="queryByDaiyDay" parameterType="String" resultType="com.shkj.bean.BusinessTripLeave">
+        select * from businessTripLeave where #{dailyDay} >= startDate and #{dailyDay} &lt;= endDate
+    </select>
 </mapper>
