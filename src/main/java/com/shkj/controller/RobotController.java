@@ -1,6 +1,7 @@
 package com.shkj.controller;
 
-import com.google.gson.JsonObject;
+import com.alibaba.fastjson.JSONObject;
+
 import com.shkj.bean.DailyMsgModel;
 import com.shkj.bean.DailyReportInfo;
 import com.shkj.service.DailyReportInfoService;
@@ -24,7 +25,7 @@ public class RobotController {
 
 	@RequestMapping("/receiveDaily")
 	@ResponseBody
-	public JsonObject saveDaily(@RequestBody DailyMsgModel model) {
+	public JSONObject saveDaily(@RequestBody DailyMsgModel model) {
 		logger.info("接收到招呼机器人消息转发内容：" + model.toString());
 		DailyReportInfo info = new DailyReportInfo();
 		info.setId(model.getMsgId());
@@ -36,18 +37,18 @@ public class RobotController {
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		info.setSpeakTime(sd.format(date));
 
-		JsonObject retMsg = new JsonObject();
-		retMsg.addProperty("msgId", model.getMsgId());
+		JSONObject posJson = new JSONObject();
+		posJson.put("msgId", model.getMsgId());
 		int code = infoService.saveDaily(info);
 		if(code == 0) {
-			retMsg.addProperty("code", 0);
-			retMsg.addProperty("msg","接收成功");
+			posJson.put("code", "0");
+			posJson.put("msg", "接收成功");
 		} else {
-			retMsg.addProperty("code", 1);
-			retMsg.addProperty("msg","接收失败");
+			posJson.put("code", "1");
+			posJson.put("msg", "接收失败");
 		}
 		// todo 插入发送记录表
-		return retMsg;
+		return posJson;
 	}
 
 }
