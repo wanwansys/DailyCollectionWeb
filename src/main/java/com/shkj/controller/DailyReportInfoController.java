@@ -33,20 +33,26 @@ public class DailyReportInfoController {
 	
 	@RequestMapping("/getAllDailyReportInfoList")
 	@ResponseBody
-	public PageInfo<DailyReportInfo> getAllDailyReportInfoList(int currentPage,int pageSize,String speakTime){	
+	public PageInfo<DailyReportInfo> getAllDailyReportInfoList(int currentPage,int pageSize,
+			String speakUserName,String speakStartTime,String speakEndTime){	
 		//查看全部人员日报
 		//设置分页信息，分别是当前页数和每页显示的总记录数
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("speakTime", speakTime);
+		map.put("speakUserName", speakUserName);
+		map.put("speakStartTime", speakStartTime);
+		map.put("speakEndTime", speakEndTime);
 		PageHelper.startPage(currentPage, pageSize);
 		List<DailyReportInfo> list = dailyReportInfoService.getAllDailyReportInfoList(map);
 	    return new PageInfo<DailyReportInfo>(list);
 	}
 	
 	@RequestMapping("/exportAllDailyReportInfo")
-	public void exportAllDailyReportInfo(String speakTime,HttpServletResponse response) {
+	public void exportAllDailyReportInfo(String speakUserName,String speakStartTime,
+			String speakEndTime,HttpServletResponse response) {
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("speakTime", speakTime);
+		map.put("speakUserName", speakUserName);
+		map.put("speakStartTime", speakStartTime);
+		map.put("speakEndTime", speakEndTime);
 		List<DailyReportInfo> list = dailyReportInfoService.getAllDailyReportInfoList(map);
 		
 		HSSFWorkbook workbook = new HSSFWorkbook();

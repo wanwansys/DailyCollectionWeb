@@ -9,12 +9,24 @@
         	select * from dailyReportInfo where 1=1
         ]]>   
         
-        <if test="speakTime !=null and speakTime !=''">
+        <if test="speakUserName !=null and speakUserName !=''">
            <![CDATA[
-            	and str_to_date(speakTime,'%Y-%m-%d') = str_to_date(#{speakTime},'%Y-%m-%d')
+            	and speakUserName like concat('%',#{speakUserName},'%')
            ]]>  
         </if> 
-               
+        
+        <if test="speakStartTime !=null and speakStartTime !=''">
+           <![CDATA[ 
+               and str_to_date(speakTime,'%Y-%m-%d') >= str_to_date(#{speakStartTime},'%Y-%m-%d')
+           ]]> 
+        </if>
+       
+       
+        <if test="speakEndTime !=null and speakEndTime !=''">
+           <![CDATA[  
+               and str_to_date(speakTime,'%Y-%m-%d') <= str_to_date(#{speakEndTime},'%Y-%m-%d') 
+           ]]>   
+        </if> 
     </select>
     
      <!-- 查看个人日报 -->
