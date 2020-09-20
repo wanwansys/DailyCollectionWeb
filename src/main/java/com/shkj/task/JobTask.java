@@ -182,7 +182,7 @@ public class JobTask implements SchedulingConfigurer {
                         requestParam.put("msgCode", sysParamService.getValueBykey("msgCode")); // 招呼机器人code，需要提供
                         requestParam.put("msgContent", noticeMsg); //招呼内容
                         requestParam.put("groupId", sysParamService.getValueBykey("groupId")); // 群聊ID，需要提供 （正式环境需要从报送日志表中获取）
-                        logger.info("【通报内容】：" + requestParam.toString());
+                        logger.info("【发送通报内容】：" + requestParam.toString());
                         HttpEntity<Map<String, Object>> request = new HttpEntity<Map<String, Object>>(requestParam, headers);
 
                         ResponseEntity<ResponseBean> entity = restTemplate.postForEntity(apiUrl, request, ResponseBean.class);

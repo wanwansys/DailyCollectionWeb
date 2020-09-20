@@ -32,7 +32,7 @@ public class RobotController {
 	@RequestMapping("/receiveDaily")
 	@ResponseBody
 	public JSONObject saveDaily(@RequestBody DailyMsgModel model) {
-		logger.info("接收到招呼机器人消息转发内容：" + model.toString());
+		logger.info("【接收到招呼机器人消息转发内容】：" + model.toString());
 		DailyReportInfo info = new DailyReportInfo();
 		info.setId(model.getMsgId());
 		String openId = model.getFromId(); // 招呼openId
