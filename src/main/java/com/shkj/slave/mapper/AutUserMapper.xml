@@ -9,6 +9,6 @@
     </select>
 
     <select id="getAutUserById" resultType="com.shkj.bean.AutUser" parameterType="String">
-        select * from aut_user where open_id=#{openId}
+        select * from aut_user where hail_openid=#{openId}
     </select>
 </mapper>

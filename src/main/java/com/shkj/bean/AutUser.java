@@ -3,7 +3,7 @@ package com.shkj.bean;
 public class AutUser {
 	private String user_id;//
 	private String user_name;//
-	private String open_id;//
+	private String hail_openid;//
 	
 	public String getUser_id() {
 		return user_id;
@@ -17,11 +17,11 @@ public class AutUser {
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
 	}
-	public String getOpen_id() {
-		return open_id;
+	public String getHail_openid() {
+		return hail_openid;
 	}
-	public void setOpen_id(String open_id) {
-		this.open_id = open_id;
+	public void setHail_openid(String hail_openid) {
+		this.hail_openid = hail_openid;
 	}
 	
 	
