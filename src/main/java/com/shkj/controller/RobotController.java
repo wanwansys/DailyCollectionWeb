@@ -39,6 +39,7 @@ public class RobotController {
 		// todo 根据openId 关联一事通用户Id
 		AutUser autUser = autUserService.getUserById(openId);
 		info.setSpeakUserNo(autUser.getUser_id());
+		System.out.println(autUser.getUser_name());
 		info.setSpeakUserName(autUser.getUser_name());
 		info.setSpeakInfo(model.getMsgContent());
 		Date date = new Date(model.getTimestamp());
