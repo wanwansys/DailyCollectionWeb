@@ -2,9 +2,11 @@ package com.shkj.controller;
 
 import com.alibaba.fastjson.JSONObject;
 
+import com.shkj.bean.AutUser;
 import com.shkj.bean.DailyMsgModel;
 import com.shkj.bean.DailyReportInfo;
 import com.shkj.service.DailyReportInfoService;
+import com.shkj.slave.service.AutUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,10 @@ public class RobotController {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
-	public DailyReportInfoService dailyReportInfoService;
+	public DailyReportInfoService infoService;
+	@Autowired
+	public AutUserService autUserService;
+
 
 	@RequestMapping("/receiveDaily")
 	@ResponseBody
@@ -32,7 +37,9 @@ public class RobotController {
 		info.setId(model.getMsgId());
 		String openId = model.getFromId(); // 招呼openId
 		// todo 根据openId 关联一事通用户Id
-		info.setSpeakUserNo(model.getFromId());
+		AutUser autUser = autUserService.getUserById(openId);
+		info.setSpeakUserNo(autUser.getUser_id());
+		info.setSpeakUserName(autUser.getUser_name());
 		info.setSpeakInfo(model.getMsgContent());
 		Date date = new Date(model.getTimestamp());
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -40,7 +47,7 @@ public class RobotController {
 
 		JSONObject posJson = new JSONObject();
 		posJson.put("msgId", model.getMsgId());
-		int code = dailyReportInfoService.saveDaily(info);
+		int code = infoService.saveDaily(info);
 		if(code == 0) {
 			posJson.put("code", "0");
 			posJson.put("msg", "接收成功");
