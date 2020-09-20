@@ -170,19 +170,18 @@ public class JobTask implements SchedulingConfigurer {
                             noDaySendMsg += "\n\n";
                         }
                         
-
                         // 合并消息内容
                         noticeMsg = noticeMsg + nosendMsg + noDaySendMsg + businessMsg + holidayMsg
                                 + "经营团队、管理部门总经理室成员每工作日应在招呼群中报送日志，公司部次日将会对未报送及未及时报送日志的负责人进行通报，如有疑问请在招呼群众告知 陈博（一事通 297807），谢谢您的配合";
                         logger.info("【通报内容】：" + noticeMsg);
                         
-                        String apiUrl = sysParamService.getValueBykey("apiUrl_Test");
+                        String apiUrl = sysParamService.getValueBykey("apiUrl");
                         HttpHeaders headers = new HttpHeaders();
                         headers.setContentType(MediaType.APPLICATION_JSON);
                         Map<String, Object> requestParam = new HashMap<>();
-                        requestParam.put("msgCode", "0001"); // 招呼机器人code，需要提供
+                        requestParam.put("msgCode", sysParamService.getValueBykey("msgCode")); // 招呼机器人code，需要提供
                         requestParam.put("msgContent", noticeMsg); //招呼内容
-                        requestParam.put("groupId", "900000395206"); // 群聊ID，需要提供 （正式环境需要从报送日志表中获取）
+                        requestParam.put("groupId", sysParamService.getValueBykey("groupId")); // 群聊ID，需要提供 （正式环境需要从报送日志表中获取）
                         logger.info("【通报内容】：" + requestParam.toString());
                         HttpEntity<Map<String, Object>> request = new HttpEntity<Map<String, Object>>(requestParam, headers);
 

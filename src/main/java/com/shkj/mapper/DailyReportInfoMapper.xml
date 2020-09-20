@@ -40,7 +40,7 @@
     </select>
 
     <insert id="saveDailyInfo" parameterType="com.shkj.bean.DailyReportInfo">
-        insert into dailyReportInfo(id,speakUserNo,speakInfo,speakTime) values (#{id},#{speakUserNo},#{speakInfo},#{speakTime})
+        insert into dailyReportInfo(id,speakUserNo,speakUserName,speakInfo,speakTime) values (#{id},#{speakUserNo},#{speakUserName},#{speakInfo},#{speakTime})
     </insert>
     
 </mapper>
