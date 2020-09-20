@@ -19,9 +19,10 @@ import java.util.Date;
 @RestController
 @RequestMapping("/robotInterface")
 public class RobotController {
+
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
-	public DailyReportInfoService infoService;
+	public DailyReportInfoService dailyReportInfoService;
 
 	@RequestMapping("/receiveDaily")
 	@ResponseBody
@@ -39,7 +40,7 @@ public class RobotController {
 
 		JSONObject posJson = new JSONObject();
 		posJson.put("msgId", model.getMsgId());
-		int code = infoService.saveDaily(info);
+		int code = dailyReportInfoService.saveDaily(info);
 		if(code == 0) {
 			posJson.put("code", "0");
 			posJson.put("msg", "接收成功");

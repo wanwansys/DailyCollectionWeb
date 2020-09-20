@@ -12,4 +12,6 @@ public interface SysParamService {
 	public int updateSysParam(SysParam sysParam);
 	//删除
 	public int deleteSysParam(String paraType);
+
+	public  String getValueBykey(String paraType);
 }

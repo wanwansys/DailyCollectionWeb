@@ -27,5 +27,10 @@ public class AutUserServiceImpl implements AutUserService{
 		return new PageInfo<AutUser>(list);		
 	}
 
-	
+	@Override
+	public AutUser getUserById(String openId) {
+		return autUserMapper.getAutUserById(openId);
+	}
+
+
 }

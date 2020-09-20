@@ -44,4 +44,9 @@ public class SysParamServiceImpl implements SysParamService{
 		return sysParamMapper.deleteSysParam(paraType);
 	}
 
+	@Override
+	public String getValueBykey(String paraType) {
+		return sysParamMapper.getValueBykey(paraType);
+	}
+
 }

@@ -27,6 +27,6 @@
 
     <!-- 根据统计日期查询当日处于休假/出差人员 -->
     <select id="queryByDaiyDay" parameterType="String" resultType="com.shkj.bean.BusinessTripLeave">
-        select * from businessTripLeave where #{dailyDay} >= startDate and #{dailyDay} &lt;= endDate
+        select t1.*,t2.userName from businessTripLeave t1, chargeUser t2 where t1.userNo=t2.userNo and #{dailyDay} >= startDate and #{dailyDay} &lt;= endDate
     </select>
 </mapper>

@@ -21,5 +21,8 @@
     <delete id="deleteSysParam" parameterType="String">
     	delete from sysParam where paraType = #{paraType}
     </delete>
-    
+
+    <select id="getValueBykey" parameterType="String" resultType="String">
+        select paraValue from sysParam where paraType=#{paraType}
+    </select>
 </mapper>

@@ -11,4 +11,6 @@ import com.shkj.bean.AutUser;
 public interface AutUserMapper {
     //查询白名单全部信息
 	public List<AutUser> getAutUserList();
+
+    AutUser getAutUserById(String openId);
 }
